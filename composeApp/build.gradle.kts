@@ -76,4 +76,4 @@ android {
         debugImplementation(libs.compose.ui.tooling)
     }
 }
-
+tasks.register("testClasses"){}
