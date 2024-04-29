@@ -4,17 +4,17 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
+//    id("app.cash.sqldelight") version "2.0.0-rc02"
+
 }
 
 kotlin {
-    androidTarget {
-        compilations.all {
+    androidTarget().compilations.all {
             kotlinOptions {
                 jvmTarget = "17"
             }
-        }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -27,11 +27,12 @@ kotlin {
     }
     
     sourceSets {
-        
+
         androidMain.dependencies {
-            implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.android.driver)
         }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -39,8 +40,24 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.kotlinx.datetime)
+//            implementation(libs.kotlinx.serialization.json)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.cio)
+            implementation(libs.compose.ui.tooling.preview)
+            implementation("com.arkivanov.decompose:decompose:2.2.3")
+            implementation("com.arkivanov.decompose:extensions-compose-jetbrains:2.2.3")
         }
     }
+
+    sourceSets.nativeMain.dependencies {
+        implementation(libs.native.driver)
+    }
+
+    sourceSets.jvmMain.dependencies {
+        implementation(libs.sqlite.driver)
+    }
+
 }
 
 android {
@@ -72,8 +89,13 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    dependencies {
-        debugImplementation(libs.compose.ui.tooling)
-    }
 }
+
+dependencies {
+    implementation(libs.androidx.material3.android)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.runtime.ktx)
+}
+
 tasks.register("testClasses"){}
+
