@@ -61,7 +61,7 @@ kotlin {
 }
 
 android {
-    namespace = "app.campusconnect.code"
+    namespace = "app.releasechecklist.code"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
@@ -69,7 +69,7 @@ android {
     sourceSets["main"].resources.srcDirs("src/commonMain/resources")
 
     defaultConfig {
-        applicationId = "app.campusconnect.code"
+        applicationId = "app.releasechecklist.code"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1

@@ -17,7 +17,7 @@ repositories {
 //sqldelight {
 //    databases {
 //        create("Database") {
-//            packageName.set("app.campusconnect.code")
+//            packageName.set("app.releasechecklist.code")
 //        }
 //    }
 //}

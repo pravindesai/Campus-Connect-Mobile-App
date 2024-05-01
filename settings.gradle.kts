@@ -1,4 +1,4 @@
-rootProject.name = "CampusConnect"
+rootProject.name = "ReleaseChecklist"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

@@ -16,6 +16,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import ui.MainScreen
 import kotlin.time.Duration.Companion.seconds
 
 @Composable
@@ -37,7 +38,7 @@ fun App() {
             if (isSplashShowing){
                 SplashScreen()
             }else{
-                Box(modifier = Modifier.fillMaxSize().background(Color.Black))
+                MainScreen()
             }
         }
 
