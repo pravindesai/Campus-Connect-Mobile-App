@@ -1,4 +1,4 @@
-package app.campusconnect.code
+package app.releasechecklist.code
 
 import App
 import android.os.Bundle
